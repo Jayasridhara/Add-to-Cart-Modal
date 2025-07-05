@@ -5,12 +5,12 @@ import './App.css'
 import ProductCard from './components/ProductCard';
 import Navbar from './components/Navbar';
 import CartModal from './components/CartModal';
-
+import loadingImage from './assets/loding.gif'; 
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [loading, setLoading] = useState(true);
    useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -19,6 +19,9 @@ function App() {
         setProducts(data);
       } catch (error) {
         console.error("Failed to fetch products:", error);
+      }
+      finally {
+        setLoading(false); // Set loading to false after fetching is complete
       }
     };
     fetchProducts();
@@ -34,20 +37,28 @@ function App() {
   const removeFromCart = (productId) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
-  
+
    const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false)
   return (
     <>
+    {loading ? (
+            <div className="flex justify-center items-center h-screen">
+              <img src={loadingImage} alt="Loading..." />
+            </div>
+          ) : (
     <div className="bg-gray-50 font-sans">
+      
       <Navbar cartCount={cart.length} openModal={openModal} />
       <main className="container mx-auto px-4 py-8">
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map(product => (
             <ProductCard  key={product.id} product={product} addToCart={addToCart} />
             
           ))}
         </div>
+      
       </main>
       <CartModal
         isOpen={isModalOpen}
@@ -56,6 +67,7 @@ function App() {
         removeFromCart={removeFromCart}
       />
     </div>
+     )}
     </>
   )
 }
