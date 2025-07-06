@@ -3,7 +3,7 @@ import React from 'react';
 
 function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
   if (!isOpen) return null;
-
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex justify-center items-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 ease-out">
@@ -45,14 +45,18 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
             </ul>
           )}
         </div>
-        <div className="p-4 border-t flex justify-end">
-          <button
-            onClick={closeModal}
-            className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
-          >
-            Close
-          </button>
+        <div className="p-4 border-t">
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-lg font-semibold text-gray-800">Total:</span>
+          <span className="text-xl font-bold text-indigo-600">${totalPrice.toFixed(2)}</span>
         </div>
+        <button
+          onClick={closeModal}
+          className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+          Close
+        </button>
+        </div>
+
       </div>
     </div>
   );
