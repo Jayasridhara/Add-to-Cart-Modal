@@ -9,7 +9,7 @@ const Toolbar = ({
   setIsSearchFocused
 }) => {
   return (
-    <div className="flex items-center gap-4 mb-6 relative">
+    <div className="flex items-center gap-4 mb-6 relative font-rowdies">
       {/* Mobile Sidebar Button */}
       <button
         onClick={toggleSidebar}
@@ -36,7 +36,7 @@ const Toolbar = ({
   </div>
 
         {/* Input and History */}
-        <div className="relative w-full">
+        <div className="relative w-full font-righteous">
          <input
             type="text"
             maxLength={30}

@@ -29,7 +29,7 @@ const Sidebar = ({ setCategories, isSidebarOpen, closeSidebar, showCategoryDropd
   return (
     <>
       {/* Mobile Sidebar */}
-      <div className="md:hidden">
+      <div className="md:hidden font-righteous">
         <div 
           className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
           onClick={closeSidebar}
@@ -46,7 +46,7 @@ const Sidebar = ({ setCategories, isSidebarOpen, closeSidebar, showCategoryDropd
       </div>
       {/* Desktop Sidebar */}
       {!isMobile && showCategoryDropdown && (
-        <div className="md:block w-[20%] h-1/2 bg-white p-6 rounded-xl shadow-md mt-2">
+        <div className="md:block w-[20%] h-1/2 bg-white p-6 rounded-xl shadow-md mt-2 font-righteous">
           {sidebarContent}
         </div>
       )}

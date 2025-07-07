@@ -5,7 +5,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
   if (!isOpen) return null;
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex justify-center items-center z-50 p-4">
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex justify-center items-center z-50 p-4 font-righteous">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 ease-out">
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-2xl font-bold text-gray-800">Your Cart</h2>
@@ -13,7 +13,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
         </div>
         <div className="p-4">
           {cartItems.length === 0 ? (
-            <p className="text-gray-600 text-center py-8">Your cart is empty.</p>
+            <p className="text-gray-600 text-center py-8 ">Your cart is empty.</p>
           ) : (
             <ul>
               {cartItems.map((item) => (
@@ -21,7 +21,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
                   key={item.id}
                   className="flex items-center justify-between border-b last:border-b-0 py-3"
                 >
-                  <div className="flex items-center flex-grow">
+                  <div className="flex items-center flex-grow font-rowdies">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -36,7 +36,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="ml-4 bg-red-500 text-white py-1 px-3 rounded-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition duration-300 ease-in-out text-sm"
+                    className="font-righteous ml-4 bg-red-500 text-white py-1 px-3 rounded-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition duration-300 ease-in-out text-sm"
                   >
                     Remove
                   </button>
@@ -52,7 +52,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
         </div>
         <button
           onClick={closeModal}
-          className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+          className="font-righteous w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
           Close
         </button>
         </div>

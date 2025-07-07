@@ -6,9 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <script src="https://cdn.tailwindcss.com"></script>
      <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <title>Vite + React</title>
   </head>
-  <body class="bg-gray-50">
+  <style type="text/tailwindcss">
+  @layer base {
+ 
+  .font-jaro
+  {
+   
+  font-family:"Jaro", sans-serif;
+
+  }
+  .font-righteous
+  {
+   
+  font-family:"Righteous", sans-serif;
+
+  }
+  .font-rowdies
+  {
+   
+  font-family:"Rowdies", sans-serif;
+
+  }
+
+
+}
+
+
+</style>
+  <body class="bg-gray-50 font-rowdies">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
