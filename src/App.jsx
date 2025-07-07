@@ -91,10 +91,10 @@ const [isSearchFocused, setIsSearchFocused] = useState(false);
     <>
     {loading ? (
             <div className="flex justify-center items-center h-screen">
-              <img src={loadingImage} alt="Loading..." />
+              <img src={loadingImage} alt="Loading..." className='w-full h-full object-contain'/>
             </div>
           ) : (
-   <div className="min-h-screen flex flex-col bg-gray-50 font-sans">
+   <div className="min-h-screen  bg-gray-50 font-sans">
   <Navbar cartCount={cart.length} openModal={openModal} />
 
   <div className="flex-1 container mx-auto px-4 py-8 flex flex-col">
