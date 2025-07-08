@@ -1,6 +1,5 @@
 import React from 'react';
-import { createPortal } from 'react-dom'; // For better accessibility and layering
-
+import { createPortal } from 'react-dom'; 
 function CustomAlert({ isOpen, message, onClose }) {
   if (!isOpen) return null;
 
@@ -30,7 +29,7 @@ function CustomAlert({ isOpen, message, onClose }) {
         </div>
       </div>
     </div>,
-    document.body // Portals render the component outside the main DOM tree, typically directly under <body>
+    document.body 
   );
 }
 

@@ -1,4 +1,3 @@
-// src/components/CartModal.js
 import React from 'react';
 
 function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {

@@ -1,4 +1,3 @@
-// App.jsx
 import { useState ,useEffect} from 'react';
 import './App.css'
 import ProductCard from './components/ProductCard';
@@ -26,7 +25,7 @@ function App() {
   const [alertMessage, setAlertMessage] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
 
-  const [selectedColors, setSelectedColors] = useState([]); // NEW STATE: for colors
+  const [selectedColors, setSelectedColors] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,11 +33,11 @@ function App() {
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
 
-        // --- START: MOCKING COLOR DATA (as explained above) ---
+        
         const productsWithColors = data.map(product => {
           if (product.category === "men's clothing" || product.category === "women's clothing") {
             let availableColors = [];
-            // Assign some common colors for clothing categories
+           
             if (product.title.toLowerCase().includes('backpack')|| product.title.toLowerCase().includes('mens casual slim fit')) {
               availableColors = ['Blue'];
             }
@@ -65,7 +64,6 @@ function App() {
             } else if (product.title.toLowerCase().includes('moisture')) {
               availableColors = ['Red'];
             } 
-
             else { // Generic clothing item
                 availableColors = ['Yellow', 'Green','Pink'];
             }
@@ -75,7 +73,7 @@ function App() {
         });
         setProducts(productsWithColors);
         setFilteredProducts(productsWithColors);
-        // --- END: MOCKING COLOR DATA ---
+        
 
       } catch (error) {
         console.error("Failed to fetch products:", error);
@@ -126,7 +124,6 @@ function App() {
     // NEW: Apply color filter
     if (selectedColors.length > 0) {
       tempProducts = tempProducts.filter(product =>
-        // Check if the product has any of the selected colors
         product.colors && selectedColors.some(color => product.colors.includes(color))
       );
     }
@@ -196,10 +193,10 @@ function App() {
               isMobile={false}
               selectedPriceRange={selectedPriceRange}
               setSelectedPriceRange={setSelectedPriceRange}
-              selectedCategories={selectedCategories} // Pass selectedCategories to Sidebar
-              selectedColors={selectedColors}         // Pass selectedColors to Sidebar
-              setSelectedColors={setSelectedColors}   // Pass setSelectedColors to Sidebar
-              allProducts={products} // Pass all products to derive available colors dynamically
+              selectedCategories={selectedCategories} 
+              selectedColors={selectedColors}         
+              setSelectedColors={setSelectedColors}  
+              allProducts={products} 
             />
             <main className="flex-1">
               <div className="min-h-[300px] w-full">

@@ -1,5 +1,4 @@
-// Sidebar.jsx
-import React, { useEffect, useState } from 'react'; // Import useEffect and useState
+import React, { useEffect, useState } from 'react'; 
 
 const Sidebar = ({
   setCategories,
@@ -9,10 +8,10 @@ const Sidebar = ({
   isMobile = true,
   selectedPriceRange,
   setSelectedPriceRange,
-  selectedCategories, // NEW PROP: for conditional rendering
-  selectedColors,     // NEW PROP: current selected colors
-  setSelectedColors,  // NEW PROP: setter for selected colors
-  allProducts // NEW PROP: all products to derive available colors
+  selectedCategories, 
+  selectedColors,     
+  setSelectedColors, 
+  allProducts 
 }) => {
   const categories = ["men's clothing", "women's clothing", "jewelery", "electronics"];
   const priceRanges = [
@@ -38,7 +37,7 @@ const Sidebar = ({
           product.colors.forEach(color => colors.add(color));
         }
       });
-      setAvailableColors(Array.from(colors).sort()); // Sort alphabetically for consistent display
+      setAvailableColors(Array.from(colors).sort()); 
     } else {
       setAvailableColors([]);
       setSelectedColors([]); // Clear selected colors if filter is hidden
@@ -99,11 +98,11 @@ const Sidebar = ({
         ))}
       </div>
 
-      {/* NEW: Color Filter Section - Conditionally rendered */}
+      
       {showColorFilter && availableColors.length > 0 && (
         <div className="mb-6">
           <h3 className="font-bold text-xl mb-3 border-b pb-2">Colors</h3>
-          <div className="grid grid-cols-1  gap-2"> {/* Using grid for better layout of color checkboxes */}
+          <div className="grid grid-cols-1  gap-2"> 
             {availableColors.map(color => (
               <div key={color} className="flex items-center mb-2">
                 <input
@@ -111,13 +110,13 @@ const Sidebar = ({
                   id={`color-${color}`}
                   value={color}
                   onChange={handleColorChange}
-                  checked={selectedColors.includes(color)} // Maintain checked state
+                  checked={selectedColors.includes(color)} 
                   className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                 />
                 <label htmlFor={`color-${color}`} className="ml-2 text-gray-700 capitalize cursor-pointer flex items-center">
                   <span
                     className="inline-block w-4 h-4 rounded-full mr-2 border border-gray-300"
-                    style={{ backgroundColor: color.toLowerCase() }} // Use CSS color name directly
+                    style={{ backgroundColor: color.toLowerCase() }}
                     title={color}
                   ></span>
                   {color}
@@ -149,7 +148,7 @@ const Sidebar = ({
         </aside>
       </div>
       {/* Desktop Sidebar */}
-      {/* Adjusted the width and height for desktop sidebar as per image */}
+      
       {!isMobile && showCategoryDropdown && (
         <div className="md:block w-[20%]  overflow-y-auto bg-white p-6 rounded-xl shadow-md mt-2 font-righteous">
           {sidebarContent}
