@@ -103,7 +103,7 @@ const Sidebar = ({
       {showColorFilter && availableColors.length > 0 && (
         <div className="mb-6">
           <h3 className="font-bold text-xl mb-3 border-b pb-2">Colors</h3>
-          <div className="grid grid-cols-2 gap-2"> {/* Using grid for better layout of color checkboxes */}
+          <div className="grid grid-cols-1  gap-2"> {/* Using grid for better layout of color checkboxes */}
             {availableColors.map(color => (
               <div key={color} className="flex items-center mb-2">
                 <input
@@ -139,7 +139,7 @@ const Sidebar = ({
           onClick={closeSidebar}
         ></div>
         <aside
-          className={`fixed top-0 left-0 w-52  bg-white p-6 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`fixed top-0 left-0 w-64  bg-white p-6 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
         >
           <div className="flex justify-between items-center mb-6">
             <h3 className="font-bold text-xl">Filters</h3>
@@ -151,7 +151,7 @@ const Sidebar = ({
       {/* Desktop Sidebar */}
       {/* Adjusted the width and height for desktop sidebar as per image */}
       {!isMobile && showCategoryDropdown && (
-        <div className="md:block w-[20%] max-h-[100vh] overflow-y-auto bg-white p-6 rounded-xl shadow-md mt-2 font-righteous">
+        <div className="md:block w-[20%]  overflow-y-auto bg-white p-6 rounded-xl shadow-md mt-2 font-righteous">
           {sidebarContent}
         </div>
       )}
