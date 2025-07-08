@@ -19,7 +19,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
               {cartItems.map((item) => (
                 <li
                   key={item.id}
-                  className="flex items-center justify-between border-b last:border-b-0 py-3"
+                  className="flex items-center justify-between border-b last:border-b-0 py-3 hover:bg-gray-100 cursor-pointer"
                 >
                   <div className="flex items-center flex-grow font-rowdies">
                     <img
@@ -31,7 +31,7 @@ function CartModal({ isOpen, closeModal, cartItems, removeFromCart }) {
                       <h4 className="text-lg font-medium text-gray-800 line-clamp-1">
                         {item.title}
                       </h4>
-                      <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                      <p className="text-blue-600 font-medium ">${item.price.toFixed(2)}</p>
                     </div>
                   </div>
                   <button
